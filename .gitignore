@@ -31,7 +31,8 @@ venv/
 # 如果有使用特定IDE或者文本编辑器的配置或缓存文件，也可以在这里忽略
 *.sublime-project
 *.sublime-workspace
-*.vscode/*
+
+!.vscode/*
 
 # 可能存在的测试覆盖率报告
 htmlcov/

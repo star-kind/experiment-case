@@ -1,11 +1,11 @@
-click==8.0.3
-config==0.5.1
+click
+config
 Flask 
 itsdangerous 
 Jinja2
 MarkupSafe
 pycryptodome
-PyJWT==2.8.0
-setuptools==68.2.2
+PyJWT
+setuptools
 Werkzeug 
-wheel==0.41.3
+wheel
