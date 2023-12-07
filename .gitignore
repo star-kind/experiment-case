@@ -1,0 +1,56 @@
+
+# 忽略操作系统自动生成的文件
+.DS_Store
+Thumbs.db
+
+# 忽略编译生成的中间文件、可执行文件等
+*.py[cod]
+*.so
+*.dylib
+
+# 忽略日志和临时文件
+*.log
+*.tmp
+
+# 忽略编辑器生成的文件
+.idea/
+# .vscode/
+
+# Python相关
+__pycache__/
+*.pyc
+
+# Flask框架相关
+instance/
+.webassets-cache/
+
+# 如果使用虚拟环境，请忽略虚拟环境目录
+venv/
+.env
+
+# 如果有使用特定IDE或者文本编辑器的配置或缓存文件，也可以在这里忽略
+*.sublime-project
+*.sublime-workspace
+*.vscode/*
+
+# 可能存在的测试覆盖率报告
+htmlcov/
+
+# 如果有Dockerfile，并且想在Git中管理镜像构建过程中的依赖包缓存，可以考虑加入此行
+!docker-compose.yml
+!Dockerfile
+!.dockerignore
+!requirements.txt
+
+# 如果你使用的是pipenv，那么可能需要包含以下内容
+.pipenv/
+
+# 如果你的项目中有使用npm进行前端资源管理，则可以考虑加入下面的内容
+node_modules/
+package-lock.json
+yarn.lock
+
+# 如果你使用了数据库迁移工具，比如Alembic，你可以选择忽略migrations目录
+migrations/
+
+*.db
