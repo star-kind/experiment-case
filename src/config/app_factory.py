@@ -9,7 +9,6 @@ def create_app():
     # 加载配置
     config_class = get_config()
     app.config.from_object(config_class)
-    # print(__name__,' app.config: ',app.config)
     
     app2 = set_logger(app)
     return app2

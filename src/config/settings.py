@@ -10,7 +10,7 @@ def get_format_date():
     return formatted_date
 
 def get_log_path():
-    log_file=os.getcwd()+'/../FlaskHistories-'
+    log_file=os.getcwd()+'/journals/FlaskHistories-'
     format_date=get_format_date()
     logger_path=log_file+str(format_date)+'.log'
     return logger_path
@@ -22,9 +22,11 @@ class PublicConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # 不需要跟踪模型修改
     JWT_SECRET_KEY = 'your-json-web-token-secret-key'
     EXPIRES_IN = 60 * 60  # 1小时有效期
-    DB_FILE_PATH= os.getcwd()+'/../project.db'
-    TEMPLATES_DIR= os.getcwd()+ '/front/template' # html模板目录
+    DB_FILE_PATH= os.getcwd()+'/databases/engineering.db'
+    TEMPLATES_DIR= os.getcwd()+ '/templates' # html模板目录
     FILE_LOG_PATH= get_log_path()
+    STATIC_URL_PREFIX= '/static' #定义用户在浏览器地址栏中访问静态文件时的URL前缀
+    STATIC_STORED_FOLDER='../static' #应用内部存放静态文件的实际目录位置
  
 class DevelopmentConfig(PublicConfig):
     # 开发环境配置

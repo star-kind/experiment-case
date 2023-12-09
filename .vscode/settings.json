@@ -3,6 +3,7 @@
     "./src/backstage/produce",
     "./src/backstage/logger",
     "./src/backstage/consts",
-    "./src/backstage/persist"
+    "./src/backstage/persist",
+    "./src/config"
   ]
 }
