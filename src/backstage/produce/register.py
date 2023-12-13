@@ -13,8 +13,7 @@ import crud
 
 def get_register_page():
   html_path="register.html"
-  res_string=render_template(html_path)
-  return res_string
+  return render_template(html_path)
 
 def handle_register_data(request_data):
   records.type_history(request_data)
