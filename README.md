@@ -75,7 +75,7 @@ docker build -t 'test1' .
 
 ```
 # test1 is docker image name
-docker run -d -p 8085:8085 test1
+docker run -t -i -d -p 8085:8085 test1
 ```
 
 <hr>
