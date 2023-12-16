@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:8085/handle-modify-password",
+      url: "/handle-modify-password",
       data: formData,
       cache: false,
       contentType: false,
@@ -47,7 +47,7 @@ function dispose(response) {
   console.log(response);
   if (response.state === 200) {
     alert("密码修改成功");
-    setTimeout(assignPage, 2000);
+    setTimeout(destination, 2000);
   } else {
     alert(response.message);
   }
@@ -71,6 +71,6 @@ function getHeaders() {
   }
 }
 
-function assignPage() {
-  window.location.assign("http://127.0.0.1:8085/");
+function destination() {
+  window.location.assign("/");
 }

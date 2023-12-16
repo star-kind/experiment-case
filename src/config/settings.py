@@ -6,14 +6,30 @@ def get_format_date():
     today = datetime.today().date()
     # 格式化日期
     formatted_date = today.strftime('%Y-%m-%d')
-    # print(formatted_date)  # 输出类似：2023-12-06
-    return formatted_date
+    return formatted_date #输出类似：2023-12-06
 
 def get_log_path():
     log_file=os.getcwd()+'/journals/FlaskHistories-'
     format_date=get_format_date()
     logger_path=log_file+str(format_date)+'.log'
+    
+    # 获取日志文件的目录部分
+    logger_dir = os.path.dirname(logger_path)
+    # 如果目录不存在，创建它
+    if not os.path.exists(logger_dir):
+        os.makedirs(logger_dir)
+        
     return logger_path
+
+def get_db_file_path():
+    db_file_path=os.getcwd()+'/databases/engineering.db'
+    # 获取目录部分
+    db_folder = os.path.dirname(db_file_path)
+    # 如果目录不存在，创建它
+    if not os.path.exists(db_folder):
+        os.makedirs(db_folder)
+        
+    return db_file_path        
 
 # 注意: 配置的名称必须是全大写形式，小写的变量将不会被读取
 class PublicConfig:
@@ -22,7 +38,7 @@ class PublicConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # 不需要跟踪模型修改
     JWT_SECRET_KEY = 'your-json-web-token-secret-key'
     EXPIRES_IN = 60 * 60  # 1小时有效期
-    DB_FILE_PATH= os.getcwd()+'/databases/engineering.db'
+    DB_FILE_PATH= get_db_file_path()
     TEMPLATES_DIR= os.getcwd()+ '/templates' # html模板目录
     FILE_LOG_PATH= get_log_path()
     STATIC_URL_PREFIX= '/static' #定义用户在浏览器地址栏中访问静态文件时的URL前缀

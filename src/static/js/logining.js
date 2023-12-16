@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:8085/login",
+      url: "/login",
       data: formData,
       cache: false,
       contentType: false,
@@ -29,14 +29,14 @@ function dispose(response) {
   if (response.state === 200) {
     sendRequest(response.token);
     alert("登录成功,点击跳转到资料页面");
-    setTimeout(assignPage, 2000);
+    setTimeout(destination, 2000);
   } else {
     alert(response.message);
   }
 }
 
-function assignPage() {
-  window.location.assign("http://127.0.0.1:8085/modify-email");
+function destination() {
+  window.location.assign("/modify-email");
 }
 
 function sendRequest(token) {
@@ -55,7 +55,7 @@ function sendRequest(token) {
   $.ajax({
     type: "GET",
     headers: headers,
-    url: "http://127.0.0.1:8085/modify-email",
+    url: "/modify-email",
     success: function (response) {
       console.log(response);
     },

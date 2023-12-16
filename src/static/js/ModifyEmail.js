@@ -49,7 +49,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:8085/handle-modify-email",
+      url: "/handle-modify-email",
       data: formData,
       cache: false,
       contentType: false,
@@ -68,7 +68,7 @@ function dispose(response) {
   if (response.state === 200) {
     localStorage.setItem("token", response.token);
     alert("邮箱地址更换成功");
-    setTimeout(assignPage, 2000);
+    setTimeout(destination, 2000);
   } else {
     alert(response.message);
   }
@@ -79,6 +79,6 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-function assignPage() {
-  window.location.assign("http://127.0.0.1:8085/");
+function destination() {
+  window.location.assign("/");
 }

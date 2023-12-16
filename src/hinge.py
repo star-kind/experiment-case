@@ -4,7 +4,6 @@ sys.path.append('./backstage/consts')
 sys.path.append('./config')
 
 from flask import request
-from flask_cors import CORS
 
 import logining
 import register
@@ -14,14 +13,6 @@ from state_consts import StateConstants
 from app_factory import create_app
 
 app=create_app()
-
-# 设置CORS（跨域资源共享）头
-CORS(app)
-
-# 设置静态文件路径
-app.template_folder = app.config['TEMPLATES_DIR']
-app.static_url_path=app.config['STATIC_URL_PREFIX']
-app.static_folder=app.config['STATIC_STORED_FOLDER']
 
 @app.route("/")#通过python装饰器的方法定义路由地址
 def root():
@@ -74,4 +65,5 @@ def handle_modify_password():
     return StateConstants.doubt_method()    
   
 if __name__ == '__main__':
-  app.run(port=8085,debug=True)#定义app在某个端口运行
+  # 允许127.0.0.1:port、内网:port、外网:port 访问flask接口
+  app.run(host='0.0.0.0',port=8085,debug=True)#定义app在某个端口运行

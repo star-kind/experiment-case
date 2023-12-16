@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:8085/register_account",
+      url: "/register_account",
       data: formData,
       cache: false,
       contentType: false,
@@ -35,12 +35,12 @@ function dispose(response) {
   console.log(response);
   if (response.state === 200) {
     alert("注册成功,点击跳转到登录页面");
-    setTimeout(assignPage, 2000);
+    setTimeout(destination, 2000);
   } else {
     alert(response.message);
   }
 }
 
-function assignPage() {
-  window.location.assign("http://127.0.0.1:8085/");
+function destination() {
+  window.location.assign("/");
 }
