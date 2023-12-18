@@ -41,13 +41,25 @@ bash gunicorn-start.sh;
 ## Directory structure
 
 ```
-src/
-├── backstage/
-│   ├──...
-├── front/
-│   └── ...
-├── hinge.py
-└── ...
+src
+├── backstage
+│       ├── consts
+│       │
+│       ├── logger
+│       │
+│       ├── persist
+│       │
+│       └── produce
+│
+├── config
+│
+├── databases
+├── journals
+├── static
+│       ├── css
+│       ├── images
+│       └── js
+└── templates
 ```
 
 <hr>
@@ -123,6 +135,56 @@ docker run -d -p 8085:8085 test1
 
 <hr>
 
+## Identify
+
 lub2304-1-stki-sz15
+
+<hr>
+
+## Nginx
+
+- Edit nginx.conf,add new content as follow(SSL certificate needs to be generated through OpenSSL):
+
+```
+    upstream flask01 {
+            server 127.0.0.1:8085;
+    }
+
+    server {
+            # listening
+            listen 81 ssl;
+
+            server_name localhost;
+
+            # SSL configuration
+	          ssl_certificate			  /opt/nginx/certificates/server1/server1.crt;
+	          ssl_certificate_key		/opt/nginx/certificates/server1/server1.key;
+
+            # default request url
+            location / {
+
+            # Request forwarded to Gunicorn server
+            proxy_pass http://flask01;
+
+            # Set the request header and pass the header information to the server side
+            proxy_set_header Host $host;
+        }
+    }
+
+```
+
+- check
+
+```
+nginx -t
+```
+
+- reload
+
+```
+nginx -s reload
+```
+
+- visit: https://IP_ADDRESS:Nginx.PORT
 
 <hr>

@@ -1,9 +1,9 @@
+from flask import request
 import sys
 sys.path.append('./backstage/produce')
 sys.path.append('./backstage/consts')
+sys.path.append('./backstage/logger')
 sys.path.append('./config')
-
-from flask import request
 
 import logining
 import register
@@ -11,13 +11,13 @@ import modified_email
 import modified_password
 from state_consts import StateConstants
 from app_factory import create_app
+import records
 
 app=create_app()
 
 @app.route("/")#通过python装饰器的方法定义路由地址
 def root():
-  app.logger.info(request.headers)
-  app.logger.info(request.method)
+  records.type_history(request)
   return logining.index_page() #用jinjia2引擎渲染页面并返回1个index.html页面
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -29,8 +29,7 @@ def handle_login():
 
 @app.route('/register')
 def register_page():
-  app.logger.info(request.headers)
-  app.logger.info(request.method)
+  records.type_history(request)
   return register.get_register_page()
   
 @app.route('/register_account', methods=['GET', 'POST'])
@@ -42,7 +41,7 @@ def handle_register():
   
 @app.route('/modify-email')  
 def modify_email():  
-  app.logger.info('modify-email.request.headers: '+str(request.headers))
+  records.type_history(request)
   return modified_email.modified_page(request)
 
 @app.route('/handle-modify-email', methods=['GET', 'POST'])
@@ -54,7 +53,7 @@ def handle_modify_email():
   
 @app.route('/modify-password')  
 def modify_password():  
-  app.logger.info('modify-PassWord.request.headers: '+str(request.headers))
+  records.type_history(request)
   return modified_password.modify_page()
  
 @app.route('/handle-modify-password', methods=['GET', 'POST'])
