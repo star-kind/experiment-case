@@ -15,7 +15,7 @@ def modify_page():
   return render_template(html_path)
 
 def handler_modified_password(req):
-  records.type_msg('handler_modified_PassWord.Form: '+str(req.form))
+  records.type_msg(handler_modified_PassWordForm=req.form)
   
   repeat_new_password=req.form['repeat_new_password']
   new_password=req.form['new_password']
@@ -85,7 +85,7 @@ def check_token_data(request):
   else:
     user_email=resp.get('email','defaultEmail')
     user_id=resp.get('id','defaultID')
-    records.type_msg('user_email: '+str(user_email)+'\n'+'user_id: '+str(user_id))  
+    records.type_msg(user_email=user_email,user_id=user_id)
 
     res_dict={'email':user_email,'id':user_id,'flag':True} 
   return res_dict    
@@ -96,13 +96,13 @@ def contrast_prev_pwd(user_email,commit_old_pwd):
   
   if len(usr_list) == 0:
     res_dict=StateConstants.user_status_amiss() | {'flag':False}
-  records.type_msg('verify_prev_pwd.usr_list: '+str(usr_list))
+  records.type_msg(verify_prev_pwd_usr_list=usr_list)
   
   prev_pwd_txt=usr_list[0][2]
   salt_key=usr_list[0][3]
   
   prev_password=cryptography.aes_decrypt(salt_key,prev_pwd_txt)
-  records.type_msg('verify_prev_pwd.prev_password: '+str(prev_password))
+  records.type_msg(verify_prev_pwd_prev_password=prev_password)
   
   if prev_password != commit_old_pwd:
     res_dict=StateConstants.origin_password_incorrect() | {'flag':False}
@@ -115,7 +115,7 @@ def contrast_prev_pwd(user_email,commit_old_pwd):
 
 def revamp_password(new_password,salt_key,user_email):
   new_password_text=cryptography.aes_encrypt(salt_key,new_password)
-  records.type_msg('revamp_password.new_password_text: '+str(new_password_text))
+  records.type_msg(revamp_password_new_password_text=new_password_text)
   
   crud.update_password_by_email(new_password_text,user_email)
   

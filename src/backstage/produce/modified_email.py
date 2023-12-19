@@ -18,7 +18,7 @@ def modified_page(request):
   return render_template(html_path)
 
 def handler_modified_email(request):
-  records.type_msg('handler_modified_email.form: '+str(request.form))
+  records.type_msg(handler_modified_email_form=request.form)
   new_email=request.form['new_email']
   password=request.form['password']
   
@@ -30,7 +30,7 @@ def handler_modified_email(request):
     return StateConstants.login_expire()  
   
   origin_email=resp.get('email','defaultEmail')
-  records.type_msg('Origin_email: '+str(origin_email))
+  records.type_msg(Origin_email=origin_email)
   
   return previous_check(new_email,password,origin_email)
   
@@ -51,7 +51,7 @@ def contrast_email(new_email,commit_password,origin_email):
     
     if len(rows) < 1 :
       return StateConstants.login_expire()
-    records.type_msg('Contrast_email.Rows: '+str(rows))
+    records.type_msg(Contrast_email_Rows=rows)
     
     previous_email=rows[0][1]
     if previous_email == new_email:
@@ -67,7 +67,7 @@ def contrast_password(rows,commit_password):
   db_pwd_txt=rows[0][2]
   db_salt=rows[0][3]
   pwd=cryptography.aes_decrypt(db_salt,db_pwd_txt)
-  records.type_msg('contrast_password.database.password: '+str(pwd))
+  records.type_msg(contrast_password_database_password=pwd)
   
   if pwd != commit_password:
     return False
@@ -82,6 +82,6 @@ def revamp_email(rows,new_email):
    
   # 创建新的字典，合并 dict1 和 dict2 的内容 
   response=StateConstants.success()|{'token':new_token}
-  records.type_msg(response)
+  records.type_msg(revamp_email_response=response)
   
   return response

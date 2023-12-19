@@ -16,7 +16,7 @@ def get_register_page():
   return render_template(html_path)
 
 def handle_register_data(request_data):
-  records.type_history(request_data)
+  records.type_msg(handle_register_data_request_dataForm=request_data.form)
   return reg_verify(request_data)
   
 def reg_verify(request_data):
@@ -70,5 +70,4 @@ def stored_usr(email,password):
     salt_str = cryptography.get_salt()
     # 获取密文
     cipher_txt=cryptography.aes_encrypt(salt_str,password)
-    
     crud.inserts(email,cipher_txt,salt_str)

@@ -1,23 +1,25 @@
-from app_factory import create_app
-app=create_app()
+import os
+import settings 
+
+def get_text_file():
+  text_file="./journals/TypeMessage-"
+  text_file+=settings.get_format_date()
+  text_file+=".log"
   
-def type_history(requests):
-  sentence = 'headers: ' + str(requests.headers) + '  '
-  sentence += 'form: ' + str(requests.form) + '  '
-  sentence += 'args: ' + str(requests.args) + '  '
-  sentence += 'data: ' + str(requests.data) + '  '
-  sentence += 'method: ' + str(requests.method) + '  '
-  sentence += 'referrer: ' + str(requests.referrer) + '  '
-  sentence += 'user_agent: ' + str(requests.user_agent) + '  '
-  sentence += 'url: ' + str(requests.url) + '  '
-  sentence += 'base_url: ' + str(requests.base_url) + '  '
-  sentence += 'url_root: ' + str(requests.url_root) + '  '
-  sentence += 'path: ' + str(requests.path) + '  '
-  sentence += 'script_root: ' + str(requests.script_root) + '  '
-  sentence += 'remote_addr: ' + str(requests.remote_addr) + '  '
-  sentence += 'get_json: ' + str(requests.get_json()) + '  '
-  sentence += '\n'
-  app.logger.info(sentence)
+  # 判断文件是否存在
+  if os.path.exists(text_file):
+    print("Type Message 文件已存在")
+  else:
+    # 创建文件
+    with open(text_file, 'w') as f:
+        print("Type Message 文件创建成功")
+  return text_file
+
+def type_msg(**msg):
+  print(msg)
+  string_msg=str(msg)
+  text_file=get_text_file()
   
-def type_msg(msg):
-  app.logger.info(str(msg))  
+  with open(text_file, mode='a') as file:
+    file.write(string_msg)
+    file.write('\n') # 换行

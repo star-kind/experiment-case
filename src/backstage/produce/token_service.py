@@ -3,7 +3,7 @@ import jwt
 
 import sys
 sys.path.append('./backstage/consts')
-from state_consts import StateConstants
+import records
 from app_factory import create_app
 
 app=create_app()
@@ -54,10 +54,10 @@ def get_data_by_token(token):
   
 def get_token_from_req(request):
   author_str=request.headers.get('Authorization','Default')
-  print('request.headers.Authorization:',author_str,'\n')
+  records.type_msg(request_headersAuthorization=author_str)
   
   token_str=author_str.replace("Bearer ", "")
-  print('token_str:',token_str,'\n')  
+  records.type_msg(token_str=token_str)
   return token_str
 
 def verify_get_usr_data(token_string):

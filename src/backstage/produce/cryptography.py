@@ -3,6 +3,7 @@ import uuid
 from Crypto.Cipher import AES  
 from Crypto.Util.Padding import pad, unpad  
 import base64  
+import records
 
 def get_salt():
     # 获取UUID
@@ -15,8 +16,8 @@ def get_salt():
     
     salt_str=encrypted_string.replace("-","")
     salt=salt_str[:16] # 截取字符串的0-16位字符
-    print('True salt = ',salt)
     
+    records.type_msg(True_salt = salt)
     return salt
 
 # private_key 的长度必须为16

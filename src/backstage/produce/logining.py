@@ -14,11 +14,10 @@ import token_service
 
 def index_page():
   html_path="index.html"
-  res_string=render_template(html_path)
-  return res_string
+  return render_template(html_path)
 
 def handle_login_data(request_data):
-  records.type_history(request_data)
+  records.type_msg(handle_login_data_request_dataForm=request_data.form)
   return early_verify(request_data)
 
 def early_verify(request_data):
