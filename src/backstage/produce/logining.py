@@ -13,7 +13,7 @@ import cryptography
 import token_service
 
 def index_page():
-  html_path="index.html"
+  html_path="account/index.html"
   return render_template(html_path)
 
 def handle_login_data(request_data):

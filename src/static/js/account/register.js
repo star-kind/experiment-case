@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "/register_account",
+      url: "/register-account",
       data: formData,
       cache: false,
       contentType: false,

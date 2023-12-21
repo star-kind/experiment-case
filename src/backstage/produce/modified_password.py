@@ -11,7 +11,7 @@ import crud
 import cryptography
 
 def modify_page():
-  html_path="ModifyPassWord.html"
+  html_path="account/ModifyPassWord.html"
   return render_template(html_path)
 
 def handler_modified_password(req):

@@ -13,7 +13,7 @@ sys.path.append('./backstage/persist')
 import crud
 
 def modified_page(request):
-  html_path="ModifyEmail.html"
+  html_path="account/ModifyEmail.html"
   print('modified_page.request.headers: ',request.headers)
   return render_template(html_path)
 

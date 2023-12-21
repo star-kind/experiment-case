@@ -6,7 +6,7 @@
     <title>Login Page</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/register.css') }}"
+      href="{{ url_for('static', filename='css/index.css') }}"
     />
     <link
       rel="shortcut icon"
@@ -15,14 +15,14 @@
     <!-- jquery -->
     <script src="{{ url_for('static', filename='js/jquery-3.7.0.min.js') }}"></script>
     <!-- 其他JS文件 -->
-    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/account/logining.js') }}"></script>
   </head>
   <body>
     <br />
     <br />
-    <div class="register-container">
-      <h1>register</h1>
-      <form id="register-form" method="POST" enctype="multipart/form-data">
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="login-form" method="POST" enctype="multipart/form-data">
         <label for="email">Email:</label>
         <input
           type="email"
@@ -43,19 +43,9 @@
           value=""
         />
         <br />
-        <label for="repeat_password">Repeat Password:</label>
-        <input
-          type="password"
-          id="repeat_password"
-          name="repeat_password"
-          required
-          maxlength="16"
-          value=""
-        />
-        <br />
         <button type="submit">Submit</button>
         <br /><br />
-        <p><a href="/">Already Have account? Login here.</a></p>
+        <p><a href="register">No account? Register here.</a></p>
       </form>
     </div>
   </body>

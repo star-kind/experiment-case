@@ -31,7 +31,7 @@ def handle_login():
 def register_page():
   return register.get_register_page()
   
-@app.route('/register_account', methods=['GET', 'POST'])
+@app.route('/register-account', methods=['GET', 'POST'])
 def handle_register():
   if request.method == 'POST':
     return register.handle_register_data(request)

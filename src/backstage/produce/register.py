@@ -12,7 +12,7 @@ import cryptography
 import crud
 
 def get_register_page():
-  html_path="register.html"
+  html_path="account/register.html"
   return render_template(html_path)
 
 def handle_register_data(request_data):
