@@ -1,9 +1,11 @@
 {
   "python.analysis.extraPaths": [
-    "./src/backstage/produce",
     "./src/backstage/logger",
-    "./src/backstage/consts",
     "./src/backstage/persist",
-    "./src/config"
+    "./src/config",
+    "./src/jsons",
+    "./src/utils",
+    "./src/backstage/services/account",
+    "./src/backstage/persist/account"
   ]
 }

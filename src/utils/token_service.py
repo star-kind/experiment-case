@@ -1,8 +1,9 @@
+# import sys
+# sys.path.append('./backstage/consts')
+
 import datetime
 import jwt
 
-import sys
-sys.path.append('./backstage/consts')
 import records
 from app_factory import create_app
 

@@ -1,10 +1,10 @@
-from flask import request
 import sys
-sys.path.append('./backstage/produce')
-sys.path.append('./backstage/consts')
+sys.path.append('./backstage/services/account')
 sys.path.append('./backstage/logger')
 sys.path.append('./config')
+sys.path.append('./jsons')
 
+from flask import request
 import logining
 import register
 import modified_email

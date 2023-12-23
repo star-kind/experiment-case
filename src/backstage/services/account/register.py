@@ -1,8 +1,3 @@
-import sys
-sys.path.append('./backstage/logger')
-sys.path.append('./backstage/consts')
-sys.path.append('./backstage/persist')
-
 from flask import render_template
 import re
 

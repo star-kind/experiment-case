@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../consts')
-
 import os
 import sqlite3
 from app_factory import create_app

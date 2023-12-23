@@ -1,15 +1,9 @@
-import sys
-sys.path.append('./backstage/logger')
-sys.path.append('./backstage/consts')
-
 import re
 from flask import render_template
 import records
 from state_consts import StateConstants
 import token_service
 import cryptography
-
-sys.path.append('./backstage/persist')
 import crud
 
 def modified_page(request):
