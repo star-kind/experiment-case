@@ -1,0 +1,71 @@
+```python
+from flask import Flask, request, jsonify
+from sqlite3 import connect
+
+app = Flask(__name__)
+
+@app.route('/essay', methods=['POST'])
+def create_essay():
+    conn = connect('database.db')
+    cursor = conn.cursor()
+
+    title = request.json['title']
+    content = request.json['content']
+    account_id = request.json['account_id']
+    account_email = request.json['account_email']
+    modification_time = request.json['modification_time']
+    level = request.json.get('level', 0)
+    is_encrypted = request.json.get('is_encrypted', 0)
+
+    query = "INSERT INTO essay (title, content, account_id, account_email, modification_time, level, is_encrypted) VALUES (?, ?, ?, ?, ?, ?, ?)"
+    cursor.execute(query, (title, content, account_id, account_email, modification_time, level, is_encrypted))
+    conn.commit()
+
+    return jsonify({'message': 'Essay created successfully'}), 201
+
+@app.route('/essay/<int:id>', methods=['GET'])
+def get_essay(id):
+    conn = connect('database.db')
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM essay WHERE id = ?"
+    cursor.execute(query, (id,))
+    essay = cursor.fetchone()
+
+    if essay:
+        return jsonify(essay)
+    else:
+        return jsonify({'message': 'Essay not found'}), 404
+
+@app.route('/essay/<int:id>', methods=['PUT'])
+def update_essay(id):
+    conn = connect('database.db')
+    cursor = conn.cursor()
+
+    title = request.json.get('title')
+    content = request.json.get('content')
+    account_id = request.json.get('account_id')
+    account_email = request.json.get('account_email')
+    modification_time = request.json.get('modification_time')
+    level = request.json.get('level')
+    is_encrypted = request.json.get('is_encrypted')
+
+    query = "UPDATE essay SET title = ?, content = ?, account_id = ?, account_email = ?, modification_time = ?, level = ?, is_encrypted = ? WHERE id = ?"
+    cursor.execute(query, (title, content, account_id, account_email, modification_time, level, is_encrypted, id))
+    conn.commit()
+
+    return jsonify({'message': 'Essay updated successfully'}), 200
+
+@app.route('/essay/<int:id>', methods=['DELETE'])
+def delete_essay(id):
+    conn = connect('database.db')
+    cursor = conn.cursor()
+
+    query = "DELETE FROM essay WHERE id = ?"
+    cursor.execute(query, (id,))
+    conn.commit()
+
+    return jsonify({'message': 'Essay deleted successfully'}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
