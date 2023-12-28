@@ -7,6 +7,8 @@
     "./src/utils",
     "./src/backstage/services/account",
     "./src/backstage/persist/account",
-    "./src/backstage/persist/common"
+    "./src/backstage/persist/common",
+    "./src/common",
+    "./src/backstage/persist/essay"
   ]
 }

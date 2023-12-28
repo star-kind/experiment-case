@@ -4,4 +4,4 @@ export FLASK_ENV=development
 export GUNICORN_CMD_ARGS="--worker-class gevent --workers 4"
 
 # 启动gunicorn
-gunicorn -c config/gunicorn_config.py hinge:app
+exec gunicorn -c config/gunicorn_config.py hinge:app

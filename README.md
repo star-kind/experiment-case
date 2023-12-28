@@ -64,6 +64,12 @@ src
 
 <hr>
 
+# Necessary steps
+
+Run generate before running the: generate_pth.py, obtain the pth file, then move the pth file to the directory: /path/[python directory]/\*/lib/${python --version}/site-packages/
+
+<hr>
+
 ## Function Description
 
 1. Login function: Users enter their email and password, and after successful verification, they will be redirected to the personal center page.
