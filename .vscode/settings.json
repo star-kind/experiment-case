@@ -9,6 +9,7 @@
     "./src/backstage/persist/account",
     "./src/backstage/persist/common",
     "./src/common",
-    "./src/backstage/persist/essay"
+    "./src/backstage/persist/essay",
+    "./src/backstage/controller/account"
   ]
 }

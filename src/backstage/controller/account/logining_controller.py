@@ -10,7 +10,7 @@ def index_page():
 
 
 def logining_controller(request_data):
-    records.type_msg(handle_login_data_request_dataForm=request_data.form)
+    records.type_msg(logining_controller=request_data.form)
     email = request_data.form["email"]
     password = request_data.form["password"]
     return logining_service.logining_deals_service(email, password)

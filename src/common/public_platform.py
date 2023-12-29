@@ -1,5 +1,5 @@
 # 数据库路径
-DATABASE_PATH = "/path/experiment-case/src/databases/Application.db"
+DATABASE_PATH = "/home/user/workspace/experiment-case/src/databases/Application.db"
 
 mail_len_upper_limit = 128  # 邮箱名称长度上限
 pwd_len_upper_limit = 16  # 密码名称长度上限

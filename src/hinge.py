@@ -1,80 +1,96 @@
-import sys
-sys.path.append('./backstage/services/account')
-sys.path.append('./backstage/logger')
-sys.path.append('./config')
-sys.path.append('./jsons')
+from flask import request, render_template
 
-from flask import request
-import logining
-import register
-import modified_email
-import modified_password
+import logining_controller
+import alter_password_controller
+import modified_mail_controller
+import register_controller
+
+import pagin_blog_entry_controller
+
 from state_consts import StateConstants
 from app_factory import create_app
 import records
 
-app=create_app()
+app = create_app()
 
-@app.route("/")#通过python装饰器的方法定义路由地址
-def root():
-  request_record()
-  return logining.index_page() #用jinjia2引擎渲染页面并返回1个index.html页面
 
-@app.route('/login', methods=['GET', 'POST'])
-def handle_login():
-  if request.method == 'POST':
-    return logining.handle_login_data(request)
-  elif request.method == 'GET':
-    return StateConstants.doubt_method()   
+@app.route("/")
+def page_login():
+    request_record()
+    return logining_controller.index_page()
 
-@app.route('/register')
-def register_page():
-  return register.get_register_page()
-  
-@app.route('/register-account', methods=['GET', 'POST'])
-def handle_register():
-  if request.method == 'POST':
-    return register.handle_register_data(request)
-  elif request.method == 'GET':
-    return StateConstants.doubt_method()   
-  
-@app.route('/modify-email')  
-def modify_email():  
-  return modified_email.modified_page(request)
 
-@app.route('/handle-modify-email', methods=['GET', 'POST'])
-def handle_modify_email():
-  if request.method == 'POST':
-    return modified_email.handler_modified_email(request)
-  elif request.method == 'GET':
-    return StateConstants.doubt_method()  
-  
-@app.route('/modify-password')  
-def modify_password():  
-  return modified_password.modify_page()
- 
-@app.route('/handle-modify-password', methods=['GET', 'POST'])
-def handle_modify_password():
-  if request.method == 'POST':
-    return modified_password.handler_modified_password(request)
-  elif request.method == 'GET':
-    return StateConstants.doubt_method()    
-  
+@app.route("/account-login", methods=["GET", "POST"])
+def handler_login():
+    if request.method == "POST":
+        return logining_controller.logining_controller(request)
+    elif request.method == "GET":
+        return StateConstants.doubt_method()
+
+
+@app.route("/account-navigation-page")
+def page_navigation():
+    return render_template("account/navigation.html")
+
+
+@app.route("/account")
+def page_register():
+    return register_controller.get_register_page()
+
+
+@app.route("/account-register", methods=["GET", "POST"])
+def handler_register():
+    if request.method == "POST":
+        return register_controller.register_controller(request)
+    elif request.method == "GET":
+        return StateConstants.doubt_method()
+
+
+@app.route("/account-modify-email-page")
+def page_modify_email():
+    return modified_mail_controller.modified_page()
+
+
+@app.route("/account-modify-email", methods=["GET", "POST"])
+def handler_modify_email():
+    if request.method == "POST":
+        return modified_mail_controller.modified_email_controller(request)
+    elif request.method == "GET":
+        return StateConstants.doubt_method()
+
+
+@app.route("/account-modify-password-page")
+def page_modify_password():
+    return alter_password_controller.modify_page()
+
+
+@app.route("/account-modify-password", methods=["GET", "POST"])
+def handler_modify_password():
+    if request.method == "POST":
+        return alter_password_controller.alter_password_controller(request)
+    elif request.method == "GET":
+        return StateConstants.doubt_method()
+
+
+@app.route("/essay-blogs-tabulation-page")
+def page_blogs_tabulation():
+    return pagin_blog_entry_controller.get_pagin_blog_entry_page()
+
+
 def request_record():
-  app.logger.info(request.headers)
-  app.logger.info(request.method)
-  app.logger.info(request.user_agent)
-  app.logger.info(request.base_url)
-  app.logger.info(request.url)
-  app.logger.info(request.remote_addr)
-  app.logger.info(request.url_root)
-  app.logger.info(request.path)
-  records.type_msg(headers=request.headers,method=request.method,
-                   referrer=request.referrer,user_agent=request.user_agent,
-                   base_url=request.base_url,url=request.url,
-                   remote_addr=request.remote_addr,url_root=request.url_root,
-                   path=request.path)  
-  
-if __name__ == '__main__':
-  # 允许127.0.0.1:port、内网:port、外网:port 访问flask接口
-  app.run(host='0.0.0.0',port=8085,debug=True)#定义app在某个端口运行
+    records.type_msg(
+        headers=request.headers,
+        method=request.method,
+        referrer=request.referrer,
+        user_agent=request.user_agent,
+        base_url=request.base_url,
+        url=request.url,
+        remote_addr=request.remote_addr,
+        url_root=request.url_root,
+        path=request.path,
+    )
+
+
+if __name__ == "__main__":
+    # 允许 127.0.0.1:port、内网:port、外网:port 访问 flask 接口
+    app.run(host="0.0.0.0", port=8085, debug=True)  # 定义app在某个端口运行

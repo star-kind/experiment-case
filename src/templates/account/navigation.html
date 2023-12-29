@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+    <script src="{{ url_for('static', filename='js/account/navigation.js') }}"></script>
+  </head>
+  <body>
+    <div class="navigation-total-container">
+      <div class="user-name-item-container">
+        <span class="user-name-item-span"></span>
+      </div>
+      <div class="links-container">
+        <ol id="main-list">
+          <li><a href="/account-modify-password-page">Revamp Password</a></li>
+          <li><a href="/account-modify-email-page">Revise Email</a></li>
+          <li><a href="/essay-blogs-tabulation-page">Articles Entity</a></li>
+          <li><a href="/">Index</a></li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

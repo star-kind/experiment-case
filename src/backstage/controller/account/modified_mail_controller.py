@@ -1,21 +1,17 @@
-import re
 from flask import render_template
 import records
 from state_consts import StateConstants
 import token_service
-import cryptography
-import account_crud
 import modified_email_service
 
 
-def modified_page(request):
+def modified_page():
     html_path = "account/ModifyEmail.html"
-    print("modified_page.request.headers: ", request.headers)
     return render_template(html_path)
 
 
 def modified_email_controller(request):
-    records.type_msg(handler_modified_email_form=request.form)
+    records.type_msg(modified_email_controller=request.form)
     new_email = request.form["new_email"]
     password = request.form["password"]
 
@@ -27,7 +23,7 @@ def modified_email_controller(request):
         return StateConstants.login_expire()
 
     origin_email = resp.get("email", "defaultEmail")
-    records.type_msg(Origin_email=origin_email)
+    records.type_msg(origin_email=origin_email)
 
     return modified_email_service.modified_email_service(
         new_email, password, origin_email

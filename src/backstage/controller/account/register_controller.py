@@ -9,12 +9,8 @@ def get_register_page():
     return render_template(html_path)
 
 
-def handle_register_data(request_data):
-    records.type_msg(handle_register_data_request_dataForm=request_data.form)
-    return register_process(request_data)
-
-
-def register_process(request_data):
+def register_controller(request_data):
+    records.type_msg(register_controller=request_data.form)
     email = request_data.form["email"]
     password = request_data.form["password"]
     re_password = request_data.form["repeat_password"]

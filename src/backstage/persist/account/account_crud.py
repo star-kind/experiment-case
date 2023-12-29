@@ -1,7 +1,3 @@
-import sys
-
-print(sys.path)
-
 import explore_tables
 import execute_sentence
 

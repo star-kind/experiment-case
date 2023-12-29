@@ -6,12 +6,12 @@ import verify_req_token
 
 
 def modify_page():
-    html_path = "account/ModifyPassWord.html"
+    html_path = "account/ModifyPassword.html"
     return render_template(html_path)
 
 
 def alter_password_controller(req):
-    records.type_msg(handler_modified_PassWordForm=req.form)
+    records.type_msg(alter_password_controller=req.form)
 
     data_dict = verify_req_token.check_token_data(req)
     if data_dict.get("flag", "TrueDefault") == False:

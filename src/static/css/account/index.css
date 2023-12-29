@@ -3,6 +3,17 @@ body {
   background-color: #f5f5f5;
 }
 
+.login-total-container {
+  transform: translate(0, 4em);
+}
+
+.message-display-div {
+  margin: 0 0 2rem 0;
+  text-align: center;
+  font-size: 20px;
+  color: #c12b8e;
+}
+
 .login-container {
   max-width: 400px;
   margin: 0 auto;
