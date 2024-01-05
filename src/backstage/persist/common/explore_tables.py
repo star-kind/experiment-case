@@ -5,7 +5,7 @@ import execute_sentence
 def explore_tables():
     sql_query1 = "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;"
     rows = execute_sentence.execute_fetch_records(sql_query1, ())
-    print(__name__ + ".explore_tables.rows: ", rows)
+    print("explore_tables.rows", rows)
 
 
 # explore_tables()

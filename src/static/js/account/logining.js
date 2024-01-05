@@ -6,6 +6,8 @@ let loginKeyDownId = "id-password";
 let loginRequestUrl = "/account-login";
 let nextPageView = "/account-navigation-page";
 let loginEmailTagId = "id-email";
+let cookieExpireTime = 1;
+let loginDisposeDelay = 3;
 
 document.addEventListener("DOMContentLoaded", function () {
   initInputTag(loginEmailTagId, cookieStampName);
@@ -68,11 +70,21 @@ function fetch2Sent(requestUrl, formData) {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Error: " + response.statusText);
+        throw new Error("Error: ", response.statusText);
       }
     })
     .then(function (response) {
       dispose(response);
+      return response;
+    })
+    .then(function (response) {
+      if (response.state != 200) {
+        setClassText(response.message, loginInforTagClsName);
+      }
+    })
+    .then(function () {
+      console.log("formData", formData);
+      setCookie(cookieStampName, formData.get("email"), cookieExpireTime);
     })
     .catch((error) => {
       console.error(error);
@@ -88,9 +100,7 @@ function dispose(response) {
     setTimeout(function () {
       localStorage.setItem(loginHandleToken, response.token);
       window.location.assign(nextPageView);
-    }, 1000 * 3);
-  } else {
-    setClassText(response.message, loginInforTagClsName);
+    }, 1000 * loginDisposeDelay);
   }
 }
 
@@ -134,4 +144,14 @@ function getCookie(name) {
     }
   }
   return null;
+}
+
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }

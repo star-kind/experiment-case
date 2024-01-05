@@ -1,7 +1,7 @@
 import re
 import essay_crud
 from state_consts import StateConstants
-import public_platform
+import public_platform as pub
 import check_params as cek
 import cont_cipher
 
@@ -14,11 +14,14 @@ def read_decrypt_blog_service(mail: str, uid: int, article_id: int, key: str):
     if params_valid == False:
         return StateConstants.param_empty()
 
-    if len(str(mail)) > public_platform.mail_len_upper_limit:
+    if len(str(mail)) > pub.mail_len_upper_limit:
         return StateConstants.email_out_limit()
 
-    if not re.match(public_platform.mail_regex_rule, str(mail)):
+    if not re.match(pub.mail_regex_rule, str(mail)):
         return StateConstants.invalid_email()
+
+    if is_contain_chinese(str(key)) == True and str(key) is not None:
+        return StateConstants.not_support_chn_key()
 
     result_check = cek.account_check_by_mail(mail)
     if result_check.get("flag", "Default") == False:
@@ -54,8 +57,29 @@ def read_decrypt_blog_service(mail: str, uid: int, article_id: int, key: str):
     article_list = list(article_tuple)
     article_list[2] = decrypt_content
 
-    return StateConstants.success() | {"article": article_list}
+    res_dict = list2Dictionary(article_list)
+    return StateConstants.success() | {"article": res_dict}
 
 
-# result = read_decrypt_blog_service("testUser@yon.com", 6, 58, 777)
-# print("read_decrypt_blog_service: ", result)
+def is_contain_chinese(string):
+    if re.search(pub.chinese_regex, string):
+        return True
+    else:
+        return False
+
+
+def list2Dictionary(article_list):
+    essay_dict = dict()
+    essay_dict["articleid"] = article_list[0]
+    essay_dict["title"] = article_list[1]
+    essay_dict["content"] = article_list[2]
+    # essay_dict["userid"] = article_list[3]
+    # essay_dict["usermail"] = article_list[4]
+    essay_dict["encryption"] = article_list[5]
+    essay_dict["level"] = article_list[6]
+    essay_dict["time"] = article_list[7]
+    return essay_dict
+
+
+# result = read_decrypt_blog_service("inspector@qq.com", 11, 68, 777)
+# print("view_separate_blog_service: ", result)

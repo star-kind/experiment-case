@@ -13,8 +13,7 @@ def create_token(param_body: dict):
         int(datetime.datetime.now().timestamp()) + app.config["EXPIRES_IN"]
     )
     app.logger.info("create_token.param_body: " + str(param_body))
-    # 第一个参数是内部的私钥，这里写在共用的配置信息里了，如果只是测试可以写死
-    # 第二个参数是有效期(秒)
+
     token = None
     try:
         # 使用配置文件中的值
@@ -34,7 +33,7 @@ def verify_token(token):
         decoded_token = jwt.decode(
             token, app.config["SECRET_KEY"], algorithms=["HS256"]
         )
-        app.logger.info(".verify_token__decoded_token: ", decoded_token)
+        app.logger.info("verify_token_decoded_token: ", decoded_token)
 
         # 假设 decoded_token[expire_key_name] 是一个 Unix 时间戳
         expire_time = datetime.datetime.fromtimestamp(

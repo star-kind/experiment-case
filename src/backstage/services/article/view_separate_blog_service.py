@@ -40,7 +40,21 @@ def view_separate_blog_service(mail: str, uid: int, article_id: int):
         return StateConstants.user_status_amiss()
 
     article_list = list(article_tuple)
-    return StateConstants.success() | {"article": article_list}
+    result_dictionary = list2Dictionary(article_list)
+    return StateConstants.success() | {"article": result_dictionary}
+
+
+def list2Dictionary(article_list):
+    essay_dict = dict()
+    essay_dict["articleid"] = article_list[0]
+    essay_dict["title"] = article_list[1]
+    essay_dict["content"] = article_list[2]
+    # essay_dict["userid"] = article_list[3]
+    # essay_dict["usermail"] = article_list[4]
+    essay_dict["encryption"] = article_list[5]
+    essay_dict["level"] = article_list[6]
+    essay_dict["time"] = article_list[7]
+    return essay_dict
 
 
 def account_check(email):
@@ -54,5 +68,5 @@ def account_check(email):
         return {"flag": True, "user": user_row}
 
 
-# result = view_separate_blog_service("testUser@yon.com", 6, 58)
+# result = view_separate_blog_service("inspector@qq.com", 11, 68)
 # print("view_separate_blog_service: ", result)

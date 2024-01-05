@@ -1,6 +1,6 @@
 import execute_sentence
 import explore_tables
-import public_platform
+import public_platform as pub
 
 
 def create_essay_tbl():
@@ -42,7 +42,7 @@ def inserts_essay(title, content, account_id, account_email, encrypted_key):
                 content,
                 account_id,
                 account_email,
-                public_platform.encrypted_rating,
+                pub.encrypted_rating,
             ),
         )
 
@@ -192,11 +192,11 @@ def update_essay_by_id(title, content, id, encrypt_key: str):
     create_essay_tbl()
     if encrypt_key == None or encrypt_key.replace(" ", "") == "":
         execute_sentence.execute_no_result(
-            sentence, (title, content, public_platform.plaintext_rating, id)
+            sentence, (title, content, pub.plaintext_rating, id)
         )
     else:
         execute_sentence.execute_no_result(
-            sentence, (title, content, public_platform.encrypted_rating, id)
+            sentence, (title, content, pub.encrypted_rating, id)
         )
 
 
@@ -215,3 +215,21 @@ def deleted_essay_by_id(id):
 
 # deleted_essay_by_id(12)
 # get_essay_by_essay_id(12)
+
+
+def get_latest_insert_essay(email, uid, title, encrypted_rating):
+    sentence = f"""SELECT id,title,content,account_id,account_email,is_encrypted,notch,modification_time 
+    FROM essay 
+    WHERE account_email = ? 
+    AND account_id = ? 
+    AND title = ? 
+    AND is_encrypted = ? 
+    ORDER BY id DESC
+    LIMIT 1;
+    """
+
+    create_essay_tbl()
+    row = execute_sentence.execute_fetch_one_row(
+        sentence, (email, uid, title, encrypted_rating)
+    )
+    return row

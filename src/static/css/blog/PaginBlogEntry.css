@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+}
+
+.view-child,
+a.article-link-item {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*  */
+.personal-total-tabulation-div-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #f5f5f5;
+  border-radius: 0.1em;
+}
+
+.destination-search-title {
+  display: flex;
+  align-items: center;
+}
+
+.search-title-text-child-div input[type="text"] {
+  padding: 1em;
+  border: 0.1em solid #ccc;
+  border-radius: 0.1em;
+  width: 100%;
+  margin-right: 2em;
+}
+
+.search-title-btn {
+  padding: 1em 1em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0.1em;
+  cursor: pointer;
+}
+
+.include-items-divide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.name-item-container,
+.address-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: #fff;
+  border-radius: 0.1em;
+  box-shadow: 0 0.1em 0.1rem rgba(0, 0, 0, 0.1);
+}
+
+.mail-item {
+  font-size: 1em;
+  color: #333;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*  */
+.hint-exhibition-container {
+  text-align: center;
+  margin: 1% 0;
+  font-size: 2rem;
+}
+
+.hint-exhibition-element {
+  font-family: "Arial", sans-serif;
+  font-size: 1em;
+  color: #4eca76;
+  margin: 0 auto;
+}
+/*  */
+
+/* 容器样式 */
+.notes-area-main {
+  width: 95%;
+  margin: auto;
+  padding: 1em;
+  background-color: #f5f5f5;
+  border-radius: 0.1em;
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+}
+
+/* 复选框样式 */
+.command-contrl-boxs {
+  cursor: pointer;
+}
+
+/* 标签样式 */
+.label-side-tag {
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+/* 标题样式 */
+.article-link-item {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+/* 时间样式 */
+.journal-time-item {
+  font-size: 1em;
+  color: #666;
+}
+
+/* 其他样式 */
+.single-journal-item-div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.journal-sign {
+  flex: 1;
+}
+
+/*  */
+.navigation-page-deal-div {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #f5f5f5;
+  border-radius: 0.1em;
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+.navigation-child-item {
+  display: flex;
+  align-items: center;
+}
+
+.view-child {
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+.position-jump,
+.jump-for-page-number {
+  margin: 0;
+}
+
+/*  */
+
+.delete-article-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0;
+}
+
+.delete-article-div-item {
+  text-align: center; /* 使按钮文本居中 */
+}
+
+.delete-article-btn {
+  background-color: #f44336; /* 设置按钮背景颜色 */
+  border: none; /* 移除边框 */
+  color: white; /* 设置按钮文本颜色 */
+  padding: 1em 1em; /* 设置按钮内边距 */
+  text-align: center; /* 使按钮文本居中 */
+  text-decoration: none; /* 移除按钮下划线 */
+  display: inline-block;
+  font-size: 1em; /* 设置按钮字体大小 */
+  margin: 0.1em 0.1em;
+  cursor: pointer; /* 设置鼠标悬停时的光标样式 */
+}
+
+/*  */
+
+.elect-box-div-element {
+  display: inline-block;
+  padding: 1em;
+}
+
+.box-side-tag,
+.label-side-tag {
+  display: inline-block;
+}
+
+/*  */
+
+.destination-page-position {
+  display: flex;
+  align-items: center;
+}
+
+.position-jump {
+  padding: 0 0.2rem;
+  font-size: 1em;
+}
+
+.jump-for-page-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jump-for-page-number {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0;
+  cursor: pointer;
+  padding: 0.1rem 1rem;
+  border-radius: 0;
+  transition: background-color 0.3s;
+}
+
+.jump-for-page-number:hover {
+  background-color: #45a049;
+}
+
+.navigation-child-item {
+  margin: 1rem;
+}
+
+/*  */
+.article-box-tag {
+  margin: 0 1em 0 0.3em;
+}
+
+.div-for-search-title {
+  position: relative;
+  left: 10%;
+}

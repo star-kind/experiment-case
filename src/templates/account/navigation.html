@@ -8,14 +8,18 @@
       rel="shortcut icon"
       href="{{ url_for('static', filename='images/favicon.png') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/account/navigation.css') }}"
+    />
     <script src="{{ url_for('static', filename='js/account/navigation.js') }}"></script>
   </head>
   <body>
     <div class="navigation-total-container">
-      <div class="user-name-item-container">
+      <div class="user-name-item-container transport">
         <span class="user-name-item-span"></span>
       </div>
-      <div class="links-container">
+      <div class="links-container transport">
         <ol id="main-list">
           <li><a href="/account-modify-password-page">Revamp Password</a></li>
           <li><a href="/account-modify-email-page">Revise Email</a></li>

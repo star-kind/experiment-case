@@ -41,6 +41,7 @@ def generate_response(mail, page_order, title):
     pagin_data = essay_crud.paginate_fuzzy_title_by_mail(
         page_order, pub.rows_per_page, title, mail
     )
+    results_pagin = ergodic_tuple(pagin_data)
 
     pagin_dictionary = Pagination(
         total_rows=len(total_lines),
@@ -48,9 +49,41 @@ def generate_response(mail, page_order, title):
         current_page=page_order,
     )
 
-    pagin_dictionary._paged_data = pagin_data
+    pagin_dictionary._paged_data = results_pagin
     return pagin_dictionary.to_dictionary()
 
 
-# result = fuzzy_title_pagin_search_service("testUser@yon.com", 6, 1, 999)
+def ergodic_tuple(two_dim_tuple):
+    rows_list = list()
+    # 遍历二维元组
+    for i, row in enumerate(two_dim_tuple):
+        article_dict = dict()
+        for j, element in enumerate(row):
+            # print(f"tuple[{i}][{j}] = {element}")
+            switch_case(j, element, article_dict)
+        rows_list.append(article_dict)
+
+    return rows_list
+
+
+def switch_case(index, value, article_dict):
+    if index == 0:
+        article_dict["articleid"] = value
+    elif index == 1:
+        article_dict["title"] = value
+    elif index == 2:
+        article_dict["content"] = ""
+    elif index == 3:
+        article_dict["uid"] = ""
+    elif index == 4:
+        article_dict["mailbox"] = value
+    elif index == 5:
+        article_dict["encryption"] = value
+    elif index == 6:
+        article_dict["scale"] = value
+    elif index == 7:
+        article_dict["time"] = value
+
+
+# result = fuzzy_title_pagin_search_service("inspector@qq.com", 11, 1, "title")
 # print("fuzzy_title_pagin_search_service: ", result)

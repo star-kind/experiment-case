@@ -2,12 +2,14 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import base64
 
+import public_platform as pub
+
 
 # 需要补位，str不是16的倍数那就补足为16的倍数
 def completion_string(value):
     print("value length", len(value))
 
-    while len(value) % 16 != 0:
+    while len(value) % pub.article_encrypt_upper != 0:
         value += "\0"
 
     print("completion_string: ", str.encode(value))

@@ -1,8 +1,16 @@
 let usrTagCls = "user-name-item-span";
 let cookieStampName = "account_stamp";
+let paginationOrderKey = "order_pages";
+let temporaryArticleKey = "prepare_article";
+let temporaryArticleKey2 = "target_article";
+let temporaryArticleTitle = "title_remark";
 
 window.onload = function () {
   initDisplayTag(usrTagCls, cookieStampName);
+  localStorage.removeItem(paginationOrderKey);
+  localStorage.removeItem(temporaryArticleKey);
+  localStorage.removeItem(temporaryArticleKey2);
+  localStorage.removeItem(temporaryArticleTitle);
 };
 
 function initDisplayTag(eleSelector, cookieName) {

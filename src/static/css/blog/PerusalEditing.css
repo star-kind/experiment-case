@@ -1,0 +1,257 @@
+.form-div-parent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  top: 10%;
+}
+
+/*  */
+.form-around-class {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  border: 0 solid #ccc;
+  border-radius: 1em;
+  background-color: #f5f5f5;
+}
+
+.data-area-div,
+.secret-div-container,
+.content-area-item,
+.writing-buttons-div {
+  margin-bottom: 1rem;
+}
+
+.title-area-item,
+.key-label-div,
+.label-div-item {
+  display: flex;
+  align-items: center;
+}
+
+.edit-title-input,
+.key-input-div,
+.edit-content-textarea {
+  flex-grow: 1;
+}
+
+.edit-button-div,
+.observe-button-div {
+  margin-right: 0em;
+}
+
+.default-buttons-div,
+.default-hide-btn-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-edit-buttons-div,
+.save-data-button-div {
+  display: none;
+}
+/* *** */
+.data-area-div,
+.secret-div-container,
+.content-area-item {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.title-area-item,
+.secret-div-container,
+.content-area-item {
+  display: flex;
+  align-items: center;
+}
+
+.universe-label-input-ele {
+  font-weight: bold;
+  color: #333;
+}
+
+.edit-title-input input,
+.key-input-div input {
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  font-size: 1rem;
+  width: 97%;
+  height: 2em;
+}
+
+/* *** */
+
+.content-area-item {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 0.1em;
+}
+
+.label-div-item label {
+  font-weight: bold;
+  color: #333;
+}
+
+.edit-content-textarea textarea {
+  border: 0.1rem solid #ccc;
+  border-radius: 1em;
+  padding: 0.1em;
+  font-size: 1rem;
+}
+
+/*  */
+
+.writing-buttons-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-buttons-div,
+.default-hide-btn-div {
+  display: flex;
+  gap: 1em;
+}
+
+.edit-button-div,
+.observe-button-div,
+.cancel-edit-buttons-div,
+.save-data-button-div {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+}
+
+.edit-button-div button,
+.observe-button-div button,
+.cancel-edit-buttons-div button,
+.save-data-button-div button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 1em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0em;
+  width: 6rem;
+}
+
+.edit-button-div button:hover,
+.observe-button-div button:hover,
+.cancel-edit-buttons-div button:hover,
+.save-data-button-div button:hover {
+  background-color: #45a049;
+}
+
+/*  */
+#id-alter-content {
+  width: 100%;
+  height: 22em;
+}
+
+/*  */
+
+.content-area-item {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.label-div-item,
+.edit-content-textarea {
+  display: block;
+}
+
+/*  */
+
+.edit-content-textarea {
+  width: 100%;
+  position: relative;
+}
+
+/*  */
+
+.address-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+.perusal-element-class {
+  margin: 1% 1%;
+  position: relative;
+  left: 35%;
+}
+
+.address-link-class {
+  padding: 1em 1em;
+  color: #333;
+}
+
+.special-mailbox-tip {
+  padding: 1em 1em;
+  text-decoration: none;
+  color: #333;
+}
+
+.address-link-class {
+  text-decoration: underline;
+}
+
+.perusal-element-class {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1em;
+  color: #333;
+}
+
+.address-link-class,
+.special-mailbox-tip {
+  font-family: "Arial", sans-serif;
+  font-size: 1.3em;
+  color: #007bff;
+}
+
+/*  */
+
+.exhibit-exception-item {
+  font-size: 2em;
+  margin: 0;
+}
+
+.exhibit-exception-post {
+  font-family: "Times New Roman", Times, serif;
+  color: #007bff;
+  text-align: center;
+}
+
+/*  */
+#cancelEditBtn,
+#saveBtn {
+  display: none;
+}
+
+.default-hide-btn-div {
+  transform: translate(-15%, 0);
+}
+
+.default-buttons-div {
+  transform: translate(15%, 0);
+}
+
+/*  */
+
+.universe-label-input-ele {
+  width: 6em;
+}
+
+.contnent-label-element {
+  margin-bottom: 2%;
+}

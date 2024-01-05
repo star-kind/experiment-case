@@ -6,6 +6,11 @@ import modified_mail_controller
 import register_controller
 
 import pagin_blog_entry_controller
+import pagin_search_title_controller
+import read_separate_controller
+import transform_journal_controller
+import increase_article_controller
+import delete_journal_controller
 
 from state_consts import StateConstants
 from app_factory import create_app
@@ -75,6 +80,64 @@ def handler_modify_password():
 @app.route("/essay-blogs-tabulation-page")
 def page_blogs_tabulation():
     return pagin_blog_entry_controller.get_pagin_blog_entry_page()
+
+
+@app.route("/essay-blogs-tabulation", methods=["POST"])
+def handler_blogs_tabulation():
+    if request.method == "POST":
+        return pagin_blog_entry_controller.pagin_blog_entry_controller(request)
+
+
+@app.route("/essay-search-title", methods=["POST"])
+def handler_search_title_blogs():
+    if request.method == "POST":
+        return pagin_search_title_controller.pagin_search_title_controller(request)
+
+
+@app.route("/essay-blog-perusal-page")
+def page_perusal_single():
+    return read_separate_controller.get_blog_perusal_page()
+
+
+@app.route("/essay-perusal-plain", methods=["POST"])
+def handler_perusal_normal():
+    if request.method == "POST":
+        return read_separate_controller.view_separate_blog_controller(request)
+
+
+@app.route("/essay-perusal-ciphertext", methods=["POST"])
+def handler_perusal_cipher():
+    if request.method == "POST":
+        return read_separate_controller.read_decrypt_blog_controller(request)
+
+
+@app.route("/essay-modify-cipher", methods=["POST"])
+def handler_modified_cipher():
+    if request.method == "POST":
+        return transform_journal_controller.transform_cipher_journal_controller(request)
+
+
+@app.route("/essay-modify-plain", methods=["POST"])
+def handler_modified_plain():
+    if request.method == "POST":
+        return transform_journal_controller.transform_plain_journal_controller(request)
+
+
+@app.route("/essay-blog-uplift-page")
+def page_augment():
+    return increase_article_controller.get_blog_uplift_page()
+
+
+@app.route("/essay-growth-single", methods=["POST"])
+def handler_increase_journal():
+    if request.method == "POST":
+        return increase_article_controller.increase_blog_controller(request)
+
+
+@app.route("/essay-delete-multiple", methods=["POST"])
+def handler_delete_journal():
+    if request.method == "POST":
+        return delete_journal_controller.delete_journal_controller(request)
 
 
 def request_record():

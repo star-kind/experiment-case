@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perusal Essay</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/blog/PerusalEditing.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container-class-div">
+      <div class="address-links-container">
+        <div class="perusal-element-class">
+          <a class="special-mailbox-tip"></a>
+        </div>
+        <div class="perusal-element-class">
+          <a class="address-link-class" href="/essay-blogs-tabulation-page"
+            >Journals Tabulation</a
+          >
+        </div>
+      </div>
+      <div class="exhibit-exception-item">
+        <p class="exhibit-exception-post"></p>
+      </div>
+      <div class="form-div-parent">
+        <div class="form-around-class">
+          <div class="data-area-div">
+            <div class="title-area-item">
+              <div class="label-div-item universe-label-input-ele">
+                <label for="id-alter-title">Title</label>
+              </div>
+              <div class="edit-title-input tough-tour">
+                <input
+                  id="id-alter-title"
+                  class="universe-input-ele prepare-value-element"
+                  value=""
+                  readonly=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="secret-div-container">
+            <div class="key-label-div universe-label-input-ele">
+              <label
+                class="key-item-class label-div-item"
+                for="id-secret-input-item"
+                >Key</label
+              >
+            </div>
+            <div class="key-input-div tough-tour">
+              <input
+                type="text"
+                class="secret-item-class universe-input-ele prepare-value-element"
+                id="id-secret-input-item"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="content-area-item">
+            <div class="edit-content-textarea tough-tour">
+              <div class="contnent-label-element universe-label-input-ele">
+                <label for="id-alter-content" class="label-div-item"
+                  >Content</label
+                >
+              </div>
+              <textarea
+                id="id-alter-content"
+                readonly=""
+                class="prepare-value-element"
+              ></textarea>
+            </div>
+          </div>
+          <div class="writing-buttons-div">
+            <div class="default-buttons-div">
+              <div class="edit-button-div universe-btn-dev">
+                <button id="editBtn">Edit</button>
+                <button id="observe-button-id">Plain</button>
+              </div>
+            </div>
+            <div class="default-hide-btn-div">
+              <div class="cancel-edit-buttons-div universe-btn-dev">
+                <button id="cancelEditBtn">Cancel</button>
+                <button id="saveBtn">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="{{ url_for('static', filename='js/essay/PerusalEditing.js') }}"></script>
+<script src="{{ url_for('static', filename='js/essay/ObservationClarity.js') }}"></script>

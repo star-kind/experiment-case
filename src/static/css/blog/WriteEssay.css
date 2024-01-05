@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  height: 120vh;
+}
+
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  background-color: #ffffff;
+  border-radius: 1em;
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.normal-div-element {
+  bottom: 8%;
+  position: relative;
+  display: flex;
+}
+
+.link-tag-back {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #ffffff;
+  padding: 1em 1em;
+  border-radius: 1em;
+}
+
+.display-account-name {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+}
+
+.single-div-tag {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  position: relative;
+  bottom: 7%;
+  font-size: 1.5rem;
+  color: #742e7e;
+}
+
+.container {
+  bottom: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#id-writing-essay-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 90%;
+  margin: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.paramter-side {
+  font-size: 1rem;
+  width: 100%;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  padding: 1em;
+  border: 0.1rem solid #cccccc;
+  border-radius: 1rem;
+}
+
+button {
+  width: 8em;
+  padding: 10% 10%;
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555555;
+}
+
+body > div > div.normal-div-element > div.link-tag-back.essay-top > a {
+  color: #f5f5f5;
+}
+
+.submit-button {
+  background-color: #4caf50;
+}
+
+.reset-button {
+  background-color: #f44336;
+}
+
+.total-button-btn-div {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.submit-item-tag-btn.button-btn-div,
+.reset-inputs-tag-btn.button-btn-div {
+  display: inline-block;
+}
+
+.submit-button.button-side,
+.reset-button.button-side {
+  margin-right: 5em;
+}
+
+.link-tag-back {
+  margin-right: 10%;
+}
+
+.display-account-name {
+  margin-left: 10%;
+}
+
+#id-ele-content {
+  font-weight: lighter;
+}

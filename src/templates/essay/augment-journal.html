@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compile Article</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/blog/WriteEssay.css') }}"
+    />
+  </head>
+  <body>
+    <div class="total-container">
+      <div class="normal-div-element">
+        <div class="link-tag-back essay-top">
+          <a href="/essay-blogs-tabulation-page" class="infor-up"
+            >Tabulation
+          </a>
+        </div>
+        <div class="display-account-name essay-top">
+          <p class="display-account-post infor-up" id="post-name-side"></p>
+        </div>
+      </div>
+      <div class="single-div-tag">
+        <p class="display-resp-tip" id="post-alert-space"></p>
+      </div>
+      <div class="container">
+        <form id="id-writing-essay-form">
+          <div class="form-group">
+            <label for="id-input-title">Title:</label>
+            <input
+              type="text"
+              id="id-input-title"
+              class="form-group-input paramter-side"
+              name="title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="id-secret-input">Key:</label>
+            <input
+              type="text"
+              id="id-secret-input"
+              class="form-group-input paramter-side"
+              name="encrypt_key"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="id-ele-content">Content:</label>
+            <textarea
+              id="id-ele-content"
+              class="form-group-textarea paramter-side"
+              rows="15"
+              name="content"
+              required
+            ></textarea>
+          </div>
+          <div class="total-button-btn-div">
+            <div class="submit-item-tag-btn button-btn-div">
+              <button
+                type="button"
+                class="submit-button button-side"
+                id="deliver-press"
+              >
+                Deliver
+              </button>
+            </div>
+            <div class="reset-inputs-tag-btn button-btn-div">
+              <button
+                type="button"
+                class="reset-button button-side"
+                id="clean-all-press"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="{{ url_for('static', filename='js/essay/JournalCompose.js') }}"></script>

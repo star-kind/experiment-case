@@ -1,58 +1,58 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
-  font-size: 23px;
+  font-size: 1rem;
 }
 
 .ModifyEmailTotalContainer {
-  transform: translate(0, 1rem);
+  transform: translate(0, 0);
 }
 
 .ModifyEmailContainer {
-  max-width: 400px;
+  max-width: 65%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 4rem;
   background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transform: translate(0px, 2em);
+  border-radius: 1em;
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.1);
+  transform: translate(0, 0%);
 }
 
-form label,
 form input {
   display: block;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
   height: 2rem;
 }
 
 form button {
   width: 100%;
-  padding: 10px;
+  padding: 1em;
   background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 1em;
 }
 
 .message-display-div {
   margin: 0 0 1rem 0;
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
   color: #c12b8e;
 }
 
 /* *** */
 
 .include-items {
+  transform: translate(-1%, 0);
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   position: relative;
   top: 0;
   right: 0;
-  gap: 20px; /* Adjust this value to change the distance between items */
+  gap: 2rem; /* Adjust this value to change the distance between items */
 }
 
 .order-item {
@@ -60,13 +60,13 @@ form button {
   vertical-align: middle;
   white-space: nowrap;
   font-family: Arial, sans-serif; /* Choose your preferred font family */
-  font-size: 18px; /* Adjust the font size as needed */
+  font-size: 1rem; /* Adjust the font size as needed */
   font-weight: normal;
   color: #333; /* Set your preferred text color */
 }
 
 .user-name-item-span {
-  margin-right: 5px; /* Add some space if needed */
+  margin-right: 1rem; /* Add some space if needed */
 }
 
 .address-item a {
@@ -77,4 +77,39 @@ form button {
 
 .address-item a:hover {
   color: #007bff; /* Change the link color on hover */
+}
+
+.command-trunk {
+  text-align: center;
+}
+
+.trick {
+  margin: 10% 0 0 0;
+}
+
+/*  */
+
+form input {
+  box-sizing: border-box;
+  border: 0.1em solid #ccc;
+  border-radius: 0.5rem;
+}
+
+form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+form input::placeholder {
+  color: #888;
+}
+
+/*  */
+
+.swell {
+  margin: 2em 0;
+}
+
+.tower {
+  margin-bottom: 1em;
 }

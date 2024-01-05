@@ -50,7 +50,9 @@ def generate_response(article_id, new_title: str, new_content: str):
     essay_crud.update_essay_by_id(
         str(new_title).strip(), str(new_content).strip(), article_id, None
     )
-    return StateConstants.success()
+
+    res_dict = {"grade": public_platform.plaintext_rating}
+    return StateConstants.success() | res_dict
 
 
 # uid = 6

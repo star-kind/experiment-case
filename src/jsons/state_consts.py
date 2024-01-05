@@ -138,3 +138,29 @@ class StateConstants:
     def article_key_mismatch():
         response = {"state": 441, "message": "The secret key of article does mismatch"}
         return response
+
+    @staticmethod
+    def already_first_page():
+        response = {
+            "state": 442,
+            "message": "No previous page, already past the first page",
+        }
+        return response
+
+    @staticmethod
+    def already_last_page():
+        response = {"state": 443, "message": "No next page, already past the last page"}
+        return response
+
+    @staticmethod
+    def full_space_parameter():
+        response = {"state": 444, "message": "The parameter is a full space string"}
+        return response
+
+    @staticmethod
+    def not_support_chn_key():
+        response = {
+            "state": 445,
+            "message": "Chinese characters are not supported as keys",
+        }
+        return response

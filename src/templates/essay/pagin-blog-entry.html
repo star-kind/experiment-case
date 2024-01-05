@@ -8,8 +8,124 @@
       rel="shortcut icon"
       href="{{ url_for('static', filename='images/favicon.png') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/blog/PaginBlogEntry.css') }}"
+    />
   </head>
+
   <body>
-    <div class="personal-total-tabulation-div"></div>
+    <div class="personal-total-tabulation-div">
+      <div class="personal-total-tabulation-div-top">
+        <div class="destination-search-title title-text-child-item">
+          <div class="search-title-text-child-div">
+            <input
+              type="text"
+              class="position-search"
+              placeholder="Input title then press enter"
+              onkeydown="handleSearchingTitleEnterKey(event)"
+            />
+          </div>
+          <div class="div-for-search-title">
+            <button
+              class="search-title-btn"
+              onclick="getInputTitleStringValue()"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+        <div class="include-items-divide">
+          <div class="name-item-container order-item">
+            <p class="mail-item"></p>
+          </div>
+          <div class="address-item order-item">
+            <p>
+              <a href="/essay-blog-uplift-page">Expand note</a>
+            </p>
+          </div>
+          <div class="address-item order-item">
+            <p>
+              <a href="/account-navigation-page">Navigation</a>
+            </p>
+          </div>
+          <div class="address-item order-item">
+            <p>
+              <a href="/">Index</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="hint-exhibition-container">
+        <p class="hint-exhibition-element" id="id-hint-feedback-element"></p>
+      </div>
+      <div class="notes-area-main">
+        <div class="elect-box-div-element">
+          <div class="box-side-tag">
+            <input
+              type="checkbox"
+              class="command-contrl-boxs"
+              id="id-control-box-trigger"
+            />
+          </div>
+          <div class="label-side-tag">
+            <label for="id-control-box-trigger">Elects All</label>
+          </div>
+        </div>
+        <div class="exhibition-tabulation-div"></div>
+      </div>
+
+      <div class="navigation-page-deal-div">
+        <div class="total-page-number navigation-child-item">
+          <span
+            >Gross Page:<span
+              class="gross-page-span"
+              id="gross-id-number"
+            ></span
+          ></span>
+        </div>
+        <div class="current-page-number navigation-child-item">
+          <span
+            >Present Page:<span
+              class="present-page-span"
+              id="present-id-number"
+            ></span
+          ></span>
+        </div>
+        <div class="destination-page-previous navigation-child-item">
+          <a class="previous-view view-child">Previous</a>
+        </div>
+        <div class="destination-page-position navigation-child-item">
+          <div class="number-for-page-input">
+            <input
+              type="number"
+              class="position-jump"
+              placeholder="INPUT NUMBER"
+              onkeydown="handleEntryEnterKey(event)"
+            />
+          </div>
+          <div class="jump-for-page-div">
+            <button class="jump-for-page-number" onclick="getInputJumpValue()">
+              JUMP
+            </button>
+          </div>
+        </div>
+        <div class="destination-page-next-to navigation-child-item">
+          <a class="next-to-view view-child">Next</a>
+        </div>
+      </div>
+      <div class="delete-article-container">
+        <div class="delete-article-div-item">
+          <button class="delete-article-btn" id="id-delete-button-execute">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
+<script src="{{ url_for('static', filename='js/essay/PaginBlogEntry.js') }}"></script>
+<script src="{{ url_for('static', filename='js/essay/PageNavigation.js') }}"></script>
+<script src="{{ url_for('static', filename='js/essay/DeleteJournal.js') }}"></script>
+<script src="{{ url_for('static', filename='js/essay/TitleSearchPagin.js') }}"></script>
+<script src="{{ url_for('static', filename='js/essay/Click2View.js') }}"></script>

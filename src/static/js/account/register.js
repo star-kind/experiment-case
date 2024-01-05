@@ -90,7 +90,7 @@ function dispose(response, email) {
 
     setCookie(cookieStampName, email, cookieExpireDay);
 
-    setTimeout(function destination() {
+    setTimeout(() => {
       window.location.assign("/");
     }, 2000);
   } else {

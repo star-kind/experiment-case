@@ -1,18 +1,11 @@
-from flask import render_template
-
 import json
 import records
 import token_service
 from state_consts import StateConstants
-import pagin_search_service
+import fuzzy_title_pagin_search_service
 
 
-def get_pagin_blog_entry_page():
-    html_path = "essay/pagin-blog-entry.html"
-    return render_template(html_path)
-
-
-def pagin_blog_entry_controller(request):
+def pagin_search_title_controller(request):
     records.type_msg(pagin_blog_entry_data=request.data)
 
     token_str = token_service.get_token_from_req(request)
@@ -33,7 +26,10 @@ def pagin_blog_entry_controller(request):
 
     # 然后解析JSON字符串为Python对象
     data_dict = json.loads(json_str)
+    article_title = data_dict.get("title", None)
     page_order = data_dict.get("page_order", 1)
 
-    result = pagin_search_service.pagin_search_service(email, uid, page_order)
+    result = fuzzy_title_pagin_search_service.fuzzy_title_pagin_search_service(
+        email, uid, page_order, article_title
+    )
     return result

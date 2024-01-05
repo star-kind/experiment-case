@@ -17,14 +17,21 @@ def amend_cryptography_blog_service(
     if type(mail) != str or type(uid) != int or type(article_id) != int:
         return StateConstants.parameter_invaild_type()
 
-    clean_title = str(new_title).replace(" ", "")
-    clean_content = str(new_content).replace(" ", "")
-    clean_secret_key = str(secret_key).replace(" ", "")
+    # clean_title = str(new_title).replace(" ", "")
+    # clean_content = str(new_content).replace(" ", "")
+    # clean_secret_key = str(secret_key).replace(" ", "")
     params_valid = cek.check_params(
-        mail, uid, clean_title, clean_content, article_id, clean_secret_key
+        mail, uid, new_title, new_content, article_id, secret_key
     )
     if params_valid == False:
         return StateConstants.param_empty()
+
+    if (
+        str(new_title).isspace()
+        or str(new_content).isspace()
+        or str(secret_key).isspace()
+    ):
+        return StateConstants.full_space_parameter()
 
     if len(str(mail)) > public_platform.mail_len_upper_limit:
         return StateConstants.email_out_limit()
@@ -52,32 +59,37 @@ def amend_cryptography_blog_service(
     if article_tuple[3] != uid or article_tuple[4] != mail:
         return StateConstants.user_status_amiss()
 
-    if " " in str(secret_key).strip():
-        return StateConstants.contains_spaces()
-
-    if secret_key != None or clean_secret_key != "":
+    if secret_key != None:
         new_cryptography = cont_cipher.encrypt(
-            clean_secret_key, str(new_content).strip()
+            str(secret_key).strip(), str(new_content).strip()
         )
 
     return generate_response(
-        article_id, str(new_title).strip(), new_cryptography.strip(), clean_secret_key
+        article_id,
+        str(new_title).strip(),
+        new_cryptography.strip(),
+        str(secret_key).strip(),
     )
 
 
 def generate_response(article_id, new_title: str, new_content: str, secret_key: str):
     essay_crud.update_essay_by_id(new_title, new_content, article_id, secret_key)
-    return StateConstants.success()
+    res_dict = {"grade": public_platform.encrypted_rating, "content": new_content}
+    return StateConstants.success() | res_dict
 
 
-# uid = 6
-# mail = "testUser@yon.com"
-# new_title = 999
-# new_content = 60355265
-# article_id = 48
-# secret_key = 888999
+def test():
+    uid = 6
+    mail = "testUser@yon.com"
+    new_title = 999
+    new_content = "60355265newnewnew"
+    article_id = 48
+    secret_key = 123456789012345678901234567890
 
-# result = amend_cryptography_blog_service(
-#     uid, mail, new_title, new_content, article_id, secret_key
-# )
-# print("result", result)
+    result = amend_cryptography_blog_service(
+        uid, mail, new_title, new_content, article_id, secret_key
+    )
+    print("result", result)
+
+
+# test()
