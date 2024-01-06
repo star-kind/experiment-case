@@ -22,6 +22,8 @@ a.article-link-item {
 .destination-search-title {
   display: flex;
   align-items: center;
+  left: 2vh;
+  position: relative;
 }
 
 .search-title-text-child-div input[type="text"] {
@@ -46,6 +48,7 @@ a.article-link-item {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 1em;
+  margin-right: 0.8vw;
 }
 
 .name-item-container,
@@ -55,7 +58,7 @@ a.article-link-item {
   align-items: center;
   padding: 0.8rem;
   background-color: #fff;
-  border-radius: 0.1em;
+  border-radius: 0em;
   box-shadow: 0 0.1em 0.1rem rgba(0, 0, 0, 0.1);
 }
 

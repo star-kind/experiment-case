@@ -145,7 +145,7 @@ let successUncover = (data) => {
 const enterSecretTrigger = () => {
   secretElementTag.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      const inputValue = document.getElementById(secretElementKey).value;
+      const inputValue = secretElementTag.value.trim();
       processSubmit(inputValue);
     }
   });

@@ -9,79 +9,85 @@
       href="{{ url_for('static', filename='css/account/register.css') }}"
     />
     <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/universal/navigation-column.css') }}"
+    />
+    <link
       rel="shortcut icon"
       href="{{ url_for('static', filename='images/favicon.png') }}"
     />
     <script src="{{ url_for('static', filename='js/account/register.js') }}"></script>
   </head>
   <body>
-    <div class="plain-container">
-      <div class="message-display-div">
-        <p class="information-display"></p>
+    <div class="there-container-class">
+      <div class="conserve">
+        <p><a href="/">Already Have account? Login here</a></p>
       </div>
-      <div class="register-container">
-        <div class="diffuser">
-          <h1>Register</h1>
+      <div class="plain-container">
+        <div class="message-display-div">
+          <p class="information-display"></p>
         </div>
-        <div class="disclose">
-          <form
-            id="id-register-form"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <div class="dilute">
-              <div class="divine">
-                <label for="id-email">Email:</label>
+        <div class="register-container">
+          <div class="diffuser">
+            <h1>Register</h1>
+          </div>
+          <div class="disclose">
+            <form
+              id="id-register-form"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <div class="dilute">
+                <div class="divine">
+                  <label for="id-email">Email:</label>
+                </div>
+                <div class="dock">
+                  <input
+                    type="email"
+                    id="id-email"
+                    name="email"
+                    value=""
+                    required
+                  />
+                </div>
               </div>
-              <div class="dock">
-                <input
-                  type="email"
-                  id="id-email"
-                  name="email"
-                  value=""
-                  required
-                />
+              <div class="diversion">
+                <div class="disrpt">
+                  <label for="id-password">Password:</label>
+                </div>
+                <div class="divert">
+                  <input
+                    type="password"
+                    id="id-password"
+                    name="password"
+                    required
+                    maxlength="16"
+                    value=""
+                  />
+                </div>
               </div>
-            </div>
-            <div class="diversion">
-              <div class="disrpt">
-                <label for="id-password">Password:</label>
+              <div class="disregard">
+                <div>
+                  <label for="id-repeat-password">Repeat Password:</label>
+                </div>
+                <div class="distort">
+                  <input
+                    type="password"
+                    id="id-repeat-password"
+                    name="repeat_password"
+                    required
+                    maxlength="16"
+                    value=""
+                  />
+                </div>
               </div>
-              <div class="divert">
-                <input
-                  type="password"
-                  id="id-password"
-                  name="password"
-                  required
-                  maxlength="16"
-                  value=""
-                />
+              <div class="conform">
+                <div class="confer">
+                  <button type="submit">Submit</button>
+                </div>
               </div>
-            </div>
-            <div class="disregard">
-              <div>
-                <label for="id-repeat-password">Repeat Password:</label>
-              </div>
-              <div class="distort">
-                <input
-                  type="password"
-                  id="id-repeat-password"
-                  name="repeat_password"
-                  required
-                  maxlength="16"
-                  value=""
-                />
-              </div>
-            </div>
-            <div class="conform">
-              <div class="confer">
-                <button type="submit">Submit</button>
-              </div>
-              <div class="conserve">
-                <p><a href="/">Already Have account? Login here</a></p>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

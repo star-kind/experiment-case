@@ -9,58 +9,65 @@
       href="{{ url_for('static', filename='css/account/index.css') }}"
     />
     <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/universal/navigation-column.css') }}"
+    />
+    <link
       rel="shortcut icon"
       href="{{ url_for('static', filename='images/favicon.png') }}"
     />
-    <script src="{{ url_for('static', filename='js/account/logining.js') }}"></script>
   </head>
   <body>
-    <div class="login-total-container">
-      <div class="message-display-div">
-        <p class="information-display"></p>
+    <div class="there-container-tag">
+      <div class="index-address-div">
+        <p><a href="/account">No account? Register here</a></p>
       </div>
-      <div class="login-container">
-        <div class="concise">
-          <h1>Login</h1>
+      <div class="login-total-container">
+        <div class="message-display-div">
+          <p class="information-display"></p>
         </div>
-        <form id="id-login-form" method="POST" enctype="multipart/form-data">
-          <div class="input-class-div">
-            <div class="label-class-div">
-              <label for="id-email">Email:</label>
-            </div>
-            <div class="input-class public-div">
-              <input
-                type="email"
-                id="id-email"
-                name="email"
-                value=""
-                required
-              />
-            </div>
+        <div class="login-container">
+          <div class="concise">
+            <h1>Login</h1>
           </div>
-          <div class="input-class-div">
-            <div class="label-class-div">
-              <label for="id-password">Password:</label>
+          <form id="id-login-form" method="POST" enctype="multipart/form-data">
+            <div class="input-class-div">
+              <div class="label-class-div">
+                <label for="id-email">Email:</label>
+              </div>
+              <div class="input-class public-div">
+                <input
+                  type="email"
+                  id="id-email"
+                  name="email"
+                  value=""
+                  required
+                />
+              </div>
             </div>
-            <div class="input-class public-div">
-              <input
-                type="password"
-                id="id-password"
-                name="password"
-                required
-                maxlength="16"
-                value=""
-              />
+            <div class="input-class-div">
+              <div class="label-class-div">
+                <label for="id-password">Password:</label>
+              </div>
+              <div class="input-class public-div">
+                <input
+                  type="password"
+                  id="id-password"
+                  name="password"
+                  required
+                  maxlength="16"
+                  value=""
+                />
+              </div>
             </div>
-          </div>
-          <div class="index-submit-div public-div">
-            <button type="submit">Submit</button>
-          </div>
-          <div class="index-address-div">
-            <p><a href="/account">No account? Register here</a></p>
-          </div>
-        </form>
+            <div class="index-submit-div public-div">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </body>
 </html>
+
+<script src="{{ url_for('static', filename='js/account/logining.js') }}"></script>
