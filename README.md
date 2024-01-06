@@ -66,7 +66,11 @@ src
 
 # Necessary steps
 
-Run generate before running the: generate_pth.py, obtain the pth file, then move the pth file to the directory: /path/[python directory]/\*/lib/${python --version}/site-packages/
+- Run generate before running the: generate_pth.py, obtain the pth file, then move the pth file to the directory: /path/[python directory]/\*/lib/${python --version}/site-packages/
+
+- Run script: `retrieval-site-pkgs` to find directory: `site-packages`
+
+- Check if it has been added to the system path: `type-sys-path`
 
 <hr>
 
@@ -78,6 +82,7 @@ Run generate before running the: generate_pth.py, obtain the pth file, then move
 4. Password modification function: Users enter their old and new passwords, and after successful verification, update their password information.
 5. Token verification: Generate a token when the user logs in and store it on the client side. Attach this token to the request header for authentication each time a request is made.
 6. AES algorithm encryption: When users register or change passwords, use AES algorithm to encrypt sensitive information to protect data security.
+7. Added blog encryption and decryption capabilities.
 
 <hr>
 
