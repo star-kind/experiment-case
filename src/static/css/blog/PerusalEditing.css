@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  height: 140vh;
+}
+
+/*  */
 .form-div-parent {
   display: flex;
   align-items: flex-start;

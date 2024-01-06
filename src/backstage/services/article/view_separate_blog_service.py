@@ -41,7 +41,10 @@ def view_separate_blog_service(mail: str, uid: int, article_id: int):
 
     article_list = list(article_tuple)
     result_dictionary = list2Dictionary(article_list)
-    return StateConstants.success() | {"article": result_dictionary}
+    article_res = {"article": result_dictionary}
+
+    success = StateConstants.success()
+    return {**success, **article_res}
 
 
 def list2Dictionary(article_list):

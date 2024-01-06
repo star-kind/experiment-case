@@ -63,9 +63,11 @@ def revamp_email(rows, new_email):
     new_token = token_service.create_token(user_data)
 
     # 创建新的字典，合并 dict1 和 dict2 的内容
-    response = StateConstants.success() | {"token": new_token}
-    records.type_msg(revamp_email_response=response)
+    resp = {"token": new_token}
+    state = StateConstants.success()
 
+    response = {**state, **resp}
+    records.type_msg(revamp_email_response=response)
     return response
 
 

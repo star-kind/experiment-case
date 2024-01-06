@@ -58,7 +58,10 @@ def read_decrypt_blog_service(mail: str, uid: int, article_id: int, key: str):
     article_list[2] = decrypt_content
 
     res_dict = list2Dictionary(article_list)
-    return StateConstants.success() | {"article": res_dict}
+    results = {"article": res_dict}
+
+    success = StateConstants.success()
+    return {**success, **results}
 
 
 def is_contain_chinese(string):

@@ -30,7 +30,10 @@ def fuzzy_title_pagin_search_service(mail: str, uid, page_order, title: str):
         return StateConstants.user_status_amiss()
 
     data = generate_response(mail, page_order, title)
-    return StateConstants.success() | {"pagination": data}
+    data_dict = {"pagination": data}
+
+    success = StateConstants.success()
+    return {**success, **data_dict}
 
 
 def generate_response(mail, page_order, title):

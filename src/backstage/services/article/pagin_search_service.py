@@ -37,7 +37,9 @@ def pagin_search_service(mail: str, uid, page_order):
     if page_order > data["total_pages"]:
         return StateConstants.already_last_page()
     else:
-        return StateConstants.success() | {"pagination": data}
+        pagin_dict = {"pagination": data}
+        success = StateConstants.success()
+        return {**success, **pagin_dict}
 
 
 def generate_response(mail, page_order):
@@ -93,7 +95,7 @@ def switch_case(index, value, article_dict):
 
 
 def test():
-    mailbox = "punter@qq.com"
+    mailbox = "Register@qq.com"
     userid = 1
     page_number = 1
     result = pagin_search_service(mailbox, userid, page_number)

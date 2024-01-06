@@ -52,7 +52,9 @@ def generate_response(article_id, new_title: str, new_content: str):
     )
 
     res_dict = {"grade": public_platform.plaintext_rating}
-    return StateConstants.success() | res_dict
+    success = StateConstants.success()
+
+    return {**success, **res_dict}
 
 
 # uid = 6

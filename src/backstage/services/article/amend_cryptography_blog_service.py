@@ -75,7 +75,9 @@ def amend_cryptography_blog_service(
 def generate_response(article_id, new_title: str, new_content: str, secret_key: str):
     essay_crud.update_essay_by_id(new_title, new_content, article_id, secret_key)
     res_dict = {"grade": public_platform.encrypted_rating, "content": new_content}
-    return StateConstants.success() | res_dict
+
+    success = StateConstants.success()
+    return {**success, **res_dict}
 
 
 def test():

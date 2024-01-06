@@ -51,7 +51,10 @@ def shapeResponse(reciprocate, title, content, uid, mail, encrypt_key):
         )
 
         result_dict = tuple2dictionary(row_tuple)
-        return StateConstants.success() | {"review": result_dict}
+        review_resp = {"review": result_dict}
+        success = StateConstants.success()
+
+        return {**success, **review_resp}
     else:
         essay_crud.inserts_essay(
             str(title).strip(),
@@ -65,7 +68,10 @@ def shapeResponse(reciprocate, title, content, uid, mail, encrypt_key):
         )
 
         result_dict = tuple2dictionary(row_tuple)
-        return StateConstants.success() | {"review": result_dict}
+
+        review_dict = {"review": result_dict}
+        success = StateConstants.success()
+        return {**success, **review_dict}
 
 
 def tuple2dictionary(mine_tuple):
@@ -111,12 +117,12 @@ def is_contain_chinese(string):
 
 
 def test():
-    title = "标题 example "
-    content = "正文 测试test 日志 "
+    title = "标题 sample "
+    content = "正文 测试 日志 "
     uid = 1
-    mail = "punter@qq.com"
-    encrypt_str = "hi 文"
-    for i in range(2):
+    mail = "Register@qq.com"
+    encrypt_str = "secret"
+    for i in range(3):
         title = title + str(i * 2)
         content = content + str(i * 3)
         result = write_blog_service(title, content, mail, uid, encrypt_str)
